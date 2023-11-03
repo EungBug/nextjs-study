@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-
-
 const NavBar = () => {
   const router = useRouter();
   console.log(router);
