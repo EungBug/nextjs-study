@@ -3,25 +3,45 @@ import { useRouter } from 'next/router';
 
 const NavBar = () => {
   const router = useRouter();
-  console.log(router);
+  
   return (
     <nav>
-      <Link href='/' className={router.pathname === '/' ? 'active' : ''}>Home</Link>
-      <Link href='/about' className={router.pathname === '/about' ? 'active' : ''}>About</Link>
+      <img src="/vercel.svg" />
+      <div>
+        <Link href="/" legacyBehavior>
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+        </Link>
+        <Link href="/about" legacyBehavior>
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        </Link>
+      </div>
       <style jsx>
-        {`
+      {`
         nav {
-          background-color: tomato;
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         }
-
-        :global(a) {
-          text-decoration: none;
-          color: yellow;
+        img {
+          max-width: 100px;
+          margin-bottom: 5px;
         }
-
-        :global(a).active {
-          color: blue;
+        nav div a {
+          font-weight: 600;
+          font-size: 18px;
         }
+        nav div a.active {
+          color: tomato;
+        }
+        nav div {
+          display: flex;
+          gap: 10px;
+        }  
       `}
       </style>
     </nav>
