@@ -4,7 +4,7 @@ const about = () => {
   return (
     <div>
       <NavBar />
-      about
+      <h1 className="active">About</h1>
     </div>
   )
 }
