@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const response = await fetch(
-    'http://localhost:9999/topics',
+    process.env.NEXT_PUBLIC_API_URL + 'topics',
     // {next: { revalidate: 0 } }, // 0인 경우 캐시를 쓰지 않겠다
     { cache: 'no-store' }, // 캐시 정책을 사용하지 않겠다.
   );
