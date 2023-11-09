@@ -1,6 +1,7 @@
+import GoProductsBtn from "@/components/GoProductsBtn";
 import { getProduct, getProducts } from "@/service/products";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 
 type Props = {
@@ -13,7 +14,9 @@ const ProductPage = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug);
 
   if (!product) {
-    notFound();
+    // 존재하지 않은 상품 경로로 접근 시 redirect로 보내줌
+    redirect('/products');
+    // notFound();
   }
 
   return (
@@ -24,6 +27,7 @@ const ProductPage = async ({ params: { slug } }: Props) => {
         alt={product.name}
         width={400} height={400}
       />
+      <GoProductsBtn />
     </>
 
   );
