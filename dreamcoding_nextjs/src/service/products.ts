@@ -5,6 +5,7 @@ export type Product = {
   id: string;
   name: string;
   price: number;
+  image: string;
 }
 
 // 재사용성과 ui와 비즈니스 로직 분리를 위해 따로 모듈화 함

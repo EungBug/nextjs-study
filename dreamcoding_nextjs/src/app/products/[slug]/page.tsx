@@ -1,4 +1,5 @@
 import { getProduct, getProducts } from "@/service/products";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 
@@ -16,7 +17,15 @@ const ProductPage = async ({ params: { slug } }: Props) => {
   }
 
   return (
-    <h1>{product.name} 제품 설명 페이지</h1>
+    <>
+      <h1>{product.name} 제품 설명 페이지</h1>
+      <Image
+        src={'/images/' + product.image}
+        alt={product.name}
+        width={400} height={400}
+      />
+    </>
+
   );
 };
 
