@@ -22,6 +22,14 @@ const nextConfig = {
         permanent: false 
       },
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/me',
+        destination: '/about/me'
+      }
+    ]
   }
 }
 
